@@ -1,0 +1,47 @@
+[project]
+name = "wildbeater"
+version = "0.1.0"
+description = "Neural tools and fools for wildberrys"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "aiohttp>=3.12.15",
+    "numpy>=2.3.3",
+    "opencv-python>=4.11.0.86",
+    "pandas>=2.3.3",
+    "requests>=2.32.5",
+    "tqdm>=4.67.1",
+    "ultralytics>=8.3.204",
+]
+
+[project.scripts]
+wildbeater = "wildbeater.cli:main"
+
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = [
+    "wildbeater",
+    "NeuralModule",
+    "ParserModule",
+    "UtilityModule",
+]
+exclude = [
+    "Model",
+    "RawData",
+    "classify_out",
+    "purple",
+    "*.dist-info",
+]
+
+[tool.setuptools.package-data]
+wildbeater = [
+    "models/*.pt",
+]
+
+[tool.uv]
+package = true
+
